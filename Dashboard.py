@@ -202,25 +202,31 @@ d2.subheader('Stars and Watchers Count per Year')
 d2.pyplot(fig4)
 
 # Row E
+st.markdown('''
+---
+''')
+st.subheader("The Data Analytics bar Doest change the scatter plot")
 e1, e2 = st.columns(2)
 
 correlation_starVSwatchers = filtered_df['stars_count'].corr(filtered_df['watchers'])
-fig5 = plt.figure(figsize=(8, 6))
-sns.scatterplot(data=filtered_df, x='stars_count', y='watchers', hue='is_popular')
-plt.title(f'Correlation: {correlation_starVSwatchers:.2f}')
-plt.xlabel('Stars Count')
-plt.ylabel('Watchers')
-e1.subheader("Star-Watchers correlation")
-e1.write(fig5)
+# fig5 = plt.figure(figsize=(8, 6))
+# sns.scatterplot(data=filtered_df, x='stars_count', y='watchers', hue='is_popular')
+# plt.title(f'Correlation: {correlation_starVSwatchers:.2f}')
+# plt.xlabel('Stars Count')
+# plt.ylabel('Watchers')
+e1.subheader(f"Star-Watchers \ncorrelation: {round(correlation_starVSwatchers, 2) }")
+# e1.write(fig5)
+
+e1.image('assets/star-watch.png')
 
 correlation_starVSforks = filtered_df['stars_count'].corr(filtered_df['forks_count'])
-fig6 = plt.figure(figsize=(8, 6))
-sns.scatterplot(data=filtered_df, x='stars_count', y='forks_count', hue='is_popular')
-plt.title(f'Correlation: {correlation_starVSforks:.2f}')
-plt.xlabel('Stars Count')
-plt.ylabel('Forks')
-e2.subheader("Star-Forks correlation")
-e2.write(fig6)
+# fig6 = plt.figure(figsize=(8, 6))
+# sns.scatterplot(data=filtered_df, x='stars_count', y='forks_count', hue='is_popular')
+# plt.title(f'Correlation: {correlation_starVSforks:.2f}')
+# plt.xlabel('Stars Count')
+# plt.ylabel('Forks')
+e2.subheader(f"Star-Forks \ncorrelation:{round(correlation_starVSforks, 2)}")
+# e2.write(fig6)
 
-
+e2.image('assets/star-fork.png')
 
